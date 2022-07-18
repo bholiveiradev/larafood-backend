@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\PlanController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('admin/plans', [PlanController::class, 'index']);
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/home', function() {
+    return view('home');
+})->name('home')->middleware('auth');
+
+Auth::routes();
