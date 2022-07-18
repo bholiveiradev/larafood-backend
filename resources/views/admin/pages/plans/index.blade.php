@@ -9,6 +9,9 @@
 @section('content')
     <div class="card">
         <div class="card-header">
+            <a href="{{ route('admin.plans.create') }}" class="btn btn-success btn-sm">
+                Cadastrar Plano
+            </a>
             #filtros
         </div>
         <div class="card-body">

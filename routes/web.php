@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('admin/plans', [PlanController::class, 'index']);
+Route::get('admin/plans', [PlanController::class, 'index'])->name('admin.plans.index');
+Route::get('admin/plans/create', [PlanController::class, 'create'])->name('admin.plans.create');
+Route::post('admin/plans', [PlanController::class, 'store'])->name('admin.plans.store');
 
 Route::get('/', function () {
     return view('welcome');

@@ -21,4 +21,16 @@ class PlanController extends Controller
 
         return view('admin.pages.plans.index', compact('plans'));
     }
+
+    public function create()
+    {
+        return view('admin.pages.plans.create');
+    }
+
+    public function store(Request $request)
+    {
+        $this->repository->create($request->all());
+
+        return redirect()->coute('admin.plans.index');
+    }
 }
