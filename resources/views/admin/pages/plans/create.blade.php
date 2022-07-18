@@ -13,15 +13,15 @@
                 @csrf
                 <div class="form-group">
                     <label for="name">Nome:</label>
-                    <input type="name" class="form-control" placeholder="Nome:">
+                    <input type="text" name="name" class="form-control" placeholder="Nome:">
                 </div>
                 <div class="form-group">
                     <label for="price">Preço:</label>
-                    <input type="price" class="form-control" placeholder="Preço:">
+                    <input type="text" name="price" class="form-control" placeholder="Preço:">
                 </div>
                 <div class="form-group">
                     <label for="description">Descrição:</label>
-                    <input type="description" class="form-control" placeholder="Descrição:">
+                    <input type="text" name="description" class="form-control" placeholder="Descrição:">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-success">

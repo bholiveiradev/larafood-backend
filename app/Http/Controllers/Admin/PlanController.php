@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Plan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PlanController extends Controller
 {
@@ -29,8 +30,10 @@ class PlanController extends Controller
 
     public function store(Request $request)
     {
+        $request['url'] = Str::slug($request->name);
+
         $this->repository->create($request->all());
 
-        return redirect()->coute('admin.plans.index');
+        return redirect()->route('admin.plans.index');
     }
 }
