@@ -188,7 +188,7 @@ return [
     */
 
     'use_route_url' => false,
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin',
     'logout_url' => 'logout',
     'login_url' => 'login',
     'register_url' => 'register',
@@ -238,8 +238,45 @@ return [
 
         // Sidebar items:
         [
+            'text' => 'Categorias',
+            'url'  => 'admin/categories',
+            'icon' => 'fas fa-tags'
+            //'can'  => 'manage-plans',
+        ],
+        [
+            'text' => 'Produtos',
+            'url'  => 'admin/products',
+            'icon' => 'fas fa-box-open'
+            //'can'  => 'manage-plans',
+        ],
+        [
+            'text' => 'Mesas',
+            'url'  => 'admin/tables',
+            'icon' => 'fas fa-tablet'
+            //'can'  => 'manage-plans',
+        ],
+        [
             'text' => 'Planos',
             'url'  => 'admin/plans',
+            'icon' => 'fas fa-list-alt'
+            //'can'  => 'manage-plans',
+        ],
+        [
+            'text' => 'Perfis',
+            'url'  => 'admin/profiles',
+            'icon' => 'fas fa-address-book'
+            //'can'  => 'manage-plans',
+        ],
+        [
+            'text' => 'Permissões',
+            'url'  => 'admin/permissions',
+            'icon' => 'fas fa-lock'
+            //'can'  => 'manage-plans',
+        ],
+        [
+            'text' => 'Usuários',
+            'url'  => 'admin/users',
+            'icon' => 'fas fa-users'
             //'can'  => 'manage-plans',
         ],
     ],

@@ -17,10 +17,50 @@
     <form action="{{ $register_url }}" method="post">
         @csrf
 
+        <div class="mb-3">
+            Plano: <strong>{{ session('plan.name') }}</strong>
+        </div>
+
+        {{-- Empresa field --}}
+        <div class="input-group mb-3">
+            <input type="text" name="company" class="form-control @error('company') is-invalid @enderror"
+                   value="{{ old('company') }}" placeholder="{{ __('adminlte::adminlte.company') }}" autofocus>
+
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-building {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                </div>
+            </div>
+
+            @error('company')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+
+        {{-- CNPJ field --}}
+        <div class="input-group mb-3">
+            <input type="text" name="cnpj" class="form-control @error('cnpj') is-invalid @enderror"
+                   value="{{ old('cnpj') }}" placeholder="{{ __('CNPJ') }}">
+
+            <div class="input-group-append">
+                <div class="input-group-text">
+                    <span class="fas fa-id-card {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                </div>
+            </div>
+
+            @error('cnpj')
+                <span class="invalid-feedback" role="alert">
+                    <strong>{{ $message }}</strong>
+                </span>
+            @enderror
+        </div>
+
         {{-- Name field --}}
         <div class="input-group mb-3">
             <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"
-                   value="{{ old('name') }}" placeholder="{{ __('adminlte::adminlte.full_name') }}" autofocus>
+                   value="{{ old('name') }}" placeholder="{{ __('adminlte::adminlte.full_name') }}">
 
             <div class="input-group-append">
                 <div class="input-group-text">

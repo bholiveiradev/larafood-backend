@@ -12647,6 +12647,16 @@ body:not(.layout-fixed) .main-sidebar .sidebar {
   margin-bottom: .2rem;
 }
 
+.nav-sidebar .nav-item > .nav-link > i.fa,
+.nav-sidebar .nav-item > .nav-link > i.fab,
+.nav-sidebar .nav-item > .nav-link > i.fad,
+.nav-sidebar .nav-item > .nav-link > i.fal,
+.nav-sidebar .nav-item > .nav-link > i.far,
+.nav-sidebar .nav-item > .nav-link > i.fas {
+    width: 20px;
+    height: 16px;
+}
+
 .nav-sidebar .nav-item > .nav-link .right {
   transition: -webkit-transform ease-in-out 0.3s;
   transition: transform ease-in-out 0.3s;
