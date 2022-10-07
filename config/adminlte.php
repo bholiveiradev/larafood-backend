@@ -16,7 +16,7 @@ return [
 
     'title' => 'LaraFood',
     'title_prefix' => '',
-    'title_postfix' => '',
+    'title_postfix' => '| LaraFood',
 
     /*
     |--------------------------------------------------------------------------
@@ -238,46 +238,52 @@ return [
 
         // Sidebar items:
         [
+            'text' => 'Dashboard',
+            'url'  => 'admin',
+            'icon' => 'fas fa-chart-line',
+            // 'can'  => 'categories',
+        ],
+        [
             'text' => 'Categorias',
             'url'  => 'admin/categories',
-            'icon' => 'fas fa-tags'
-            //'can'  => 'manage-plans',
+            'icon' => 'fas fa-tags',
+            'can'  => 'categories',
         ],
         [
             'text' => 'Produtos',
             'url'  => 'admin/products',
-            'icon' => 'fas fa-box-open'
-            //'can'  => 'manage-plans',
+            'icon' => 'fas fa-box-open',
+            'can'  => 'products',
         ],
         [
             'text' => 'Mesas',
             'url'  => 'admin/tables',
-            'icon' => 'fas fa-tablet'
-            //'can'  => 'manage-plans',
+            'icon' => 'fas fa-tablet',
+            'can'  => 'tables',
         ],
         [
             'text' => 'Planos',
             'url'  => 'admin/plans',
-            'icon' => 'fas fa-list-alt'
-            //'can'  => 'manage-plans',
+            'icon' => 'fas fa-list-alt',
+            'can'  => 'plans',
         ],
         [
             'text' => 'Perfis',
             'url'  => 'admin/profiles',
-            'icon' => 'fas fa-address-book'
-            //'can'  => 'manage-plans',
+            'icon' => 'fas fa-address-book',
+            'can'  => 'profiles',
         ],
         [
             'text' => 'Permissões',
             'url'  => 'admin/permissions',
-            'icon' => 'fas fa-lock'
-            //'can'  => 'manage-plans',
+            'icon' => 'fas fa-lock',
+            'can'  => 'permissions',
         ],
         [
             'text' => 'Usuários',
             'url'  => 'admin/users',
-            'icon' => 'fas fa-users'
-            //'can'  => 'manage-plans',
+            'icon' => 'fas fa-users',
+            'can'  => 'users',
         ],
     ],
 

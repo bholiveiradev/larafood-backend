@@ -6,20 +6,30 @@ trait UserACLTrait
 {
     public function permissions()
     {
-        $profiles = $this->company->profiles;
-        $permissions = [];
+        $complanyPlan    = $this->company->plan;
+        $userPermissions = [];
 
-        foreach($profiles as $profile) {
+        foreach($complanyPlan->profiles as $profile) {
             foreach($profile->permissions as $permission) {
-                array_push($permissions, $permission->name);
+                array_push($userPermissions, $permission->name);
             }
         }
 
-        return $permissions;
+        return $userPermissions;
     }
 
     public function hasPermission(string $permission)
     {
         return in_array($permission, $this->permissions());
+    }
+
+    public function isAdmin()
+    {
+        return in_array($this->email, config('acl.admins'));
+    }
+
+    public function isTenant()
+    {
+        return !in_array($this->email, config('acl.admins'));
     }
 }

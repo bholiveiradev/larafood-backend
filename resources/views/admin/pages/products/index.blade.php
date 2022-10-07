@@ -50,12 +50,7 @@
                     @forelse ($products as $product)
                         <tr>
                             <td>
-                                @if (!$product->image)
-                                    <img src="https://via.placeholder.com/60" width="90" alt="" style="max-width: 90px">
-                                @else
-                                    <img src="{{ asset("storage/{$product->image}") }}" width="90" alt="" style="max-width: 90px">
-                                @endif
-
+                                <img src="{{  !$product->image ? 'https://via.placeholder.com/60' : asset("storage/{$product->image}") }}" width="90" height="52" alt="" style="width: 90px; height: 52px; object-fit: cover">
                                 <span class="ml-2">{{ $product->title }}</span>
                             </td>
                             <td>{{ number_format($product->price, 2, ',', '.') }}</td>
