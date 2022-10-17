@@ -15,6 +15,8 @@ class PlanProfileController extends Controller
     {
         $this->repositoryProfile = $profile;
         $this->repositoryPlan    = $plan;
+
+        $this->middleware('can:plans_profiles');
     }
 
     public function profiles($planUrl)

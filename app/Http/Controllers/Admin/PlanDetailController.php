@@ -13,6 +13,8 @@ class PlanDetailController extends Controller
     public function __construct(Plan $plan)
     {
         $this->repository = $plan;
+
+        $this->middleware('can:plans');
     }
 
     public function index($planUrl)

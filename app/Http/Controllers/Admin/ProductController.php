@@ -15,6 +15,8 @@ class ProductController extends Controller
     public function __construct(Product $product)
     {
         $this->repository = $product;
+
+        $this->middleware('can:products');
     }
     /**
      * Display a listing of the resource.
@@ -99,7 +101,8 @@ class ProductController extends Controller
 
         $company = auth()->user()->company;
 
-        if ($request->hasFile('image') && $request->image->isValid()){
+        if ($request->hasFile('image') && $request->image->isValid()) {
+
             if (Storage::exists($product->image))
                 Storage::delete($product->image);
 

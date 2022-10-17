@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Permissões')
+@section('title', 'Empresas')
 
 @section('content_header')
     <ol class="breadcrumb">
@@ -8,25 +8,21 @@
             <a href="{{ route('admin.dashboard') }}">Dashboard</a>
         </li>
         <li class="breadcrumb-item active">
-            Permissões
+            Empresas
         </li>
     </ol>
 
-    <h1>Permissões</h1>
+    <h1>Empresas</h1>
 @stop
 
 @section('content')
     <div class="card">
         <div class="card-header">
-            <div class="d-flex justify-content-between">
-                <a href="{{ route('admin.permissions.create') }}" class="btn btn-info btn-sm">
-                    <i class="fas fa-plus-circle"></i>
-                    <span class="ml-1 d-none d-md-inline-block text-uppercase">Cadastrar Permissão</span>
-                </a>
-                <form action="{{ route('admin.permissions.search') }}" method="post" class="form form-inline">
+            <div class="d-flex justify-content-end">
+                <form action="{{ route('admin.companies.search') }}" method="post" class="form form-inline">
                     @csrf
                     <div class="input-group input-group-sm">
-                        <input type="text" name="text" class="form-control" value="{{ request('text') }}" placeholder="Procurar Permissão...">
+                        <input type="text" name="text" class="form-control" value="{{ request('text') }}" placeholder="Procurar categoria...">
                         <div class="input-group-append">
                             <button class="btn btn-secondary">
                                 <i class="fas fa-search"></i>
@@ -40,19 +36,26 @@
             <table class="table table-condensed">
                 <thead>
                     <tr>
-                        <th>Permissão</th>
+                        <th>Empresa</th>
+                        <th>CNPJ</th>
+                        <th>Ativa</th>
                         <th width="150">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($permissions as $permission)
+                    @forelse ($companies as $company)
                         <tr>
-                            <td>{{ $permission->name }}</td>
                             <td>
-                                <a href="{{ route('admin.permissions.show', $permission->id) }}" class="btn btn-light btn-sm" data-toggle="tooltip" data-placement="left" title="Ver mais">
+                                <img src="{{  !$company->logo ? 'https://via.placeholder.com/90' : asset("storage/{$company->logo}") }}" width="90" height="52" alt="" style="width: 90px; height: 52px; object-fit: cover">
+                                <span class="ml-2">{{ $company->name }}</span>
+                            </td>
+                            <td>{{ $company->cnpj }}</td>
+                            <td>{{ $company->is_active === 'Y' ? 'SIM' : 'NÃO' }}</td>
+                            <td>
+                                <a href="{{ route('admin.companies.show', $company->uuid) }}" class="btn btn-light btn-sm" data-toggle="tooltip" data-placement="left" title="Ver mais">
                                     <i class="fas fa-eye"></i>
                                 </a>
-                                <a href="{{ route('admin.permissions.edit', $permission->id) }}" class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="left" title="Editar">
+                                <a href="{{ route('admin.companies.edit', $company->uuid) }}" class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="left" title="Editar">
                                     <i class="fas fa-edit"></i>
                                 </a>
                             </td>
@@ -69,9 +72,9 @@
         </div>
         <div class="card-footer">
             @if (null !== request('text'))
-                {!! $permissions->appends(['text' => request('text')])->links() !!}
+                {!! $companies->appends(['text' => request('text')])->links() !!}
             @else
-                {!! $permissions->links() !!}
+                {!! $companies->links() !!}
             @endif
         </div>
     </div>

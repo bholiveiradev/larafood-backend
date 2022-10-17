@@ -1,8 +1,8 @@
 @include('admin.includes.alerts')
 
 <div class="form-group">
-    <label for="name">Permissão:</label>
-    <input type="text" name="name" value="{{ $profile->name ?? old('name') }}" class="form-control @error('name') is-invalid @enderror" placeholder="Nome:">
+    <label for="name">Nome:</label>
+    <input type="text" name="name" value="{{ $role->name ?? old('name') }}" class="form-control @error('name') is-invalid @enderror" placeholder="Nome:">
 
     @error('name')
         <span class="invalid-feedback" role="alert">
@@ -12,7 +12,7 @@
 </div>
 <div class="form-group">
     <label for="description">Descrição:</label>
-    <input type="text" name="description" value="{{ $profile->description ?? old('description') }}" class="form-control @error('description') is-invalid @enderror"
+    <input type="text" name="description" value="{{ $role->description ?? old('description') }}" class="form-control @error('description') is-invalid @enderror"
         placeholder="Descrição:">
 
     @error('description')

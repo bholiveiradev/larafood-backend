@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\{
     ACL\ProfileController,
     ACL\PermissionProfileController,
     CategoryController,
+    CompanyController,
     DashboardController,
     PlanController,
     PlanDetailController,
@@ -13,7 +14,9 @@ use App\Http\Controllers\Admin\{
     TableController,
     UserController
 };
+use App\Http\Controllers\Admin\ACL\PermissionRoleController;
 use App\Http\Controllers\Admin\ACL\PlanProfileController;
+use App\Http\Controllers\Admin\ACL\RoleController;
 use Illuminate\Support\Facades\{
     Auth,
     Route
@@ -35,6 +38,9 @@ Route::prefix('admin')
         ->name('admin.')
         ->middleware('auth')
         ->group(function() {
+
+            Route::any('companies/search', [CompanyController::class, 'search'])->name('companies.search');
+            Route::resource('companies', CompanyController::class)->except(['create', 'destroy']);
 
             // Rotas Categorias
             Route::any('tables/search', [TableController::class, 'search'])->name('tables.search');
@@ -66,6 +72,13 @@ Route::prefix('admin')
             Route::post('plans/{url}/profiles', [PlanProfileController::class, 'attachProfilesToPlan'])->name('plans.profiles.attach');
             Route::delete('plans/{url}/profiles/{profile}', [PlanProfileController::class, 'detachProfilesToPlan'])->name('plans.profiles.detach');
 
+            // Cargos X Permissões
+            Route::any('roles/{role}/permissions/search', [PermissionRoleController::class, 'search'])->name('roles.permissions.search');
+            Route::get('roles/{role}/permissions', [PermissionRoleController::class, 'permissions'])->name('roles.permissions.index');
+            Route::get('roles/{role}/permissions/available', [PermissionRoleController::class, 'available'])->name('roles.permissions.available');
+            Route::post('roles/{role}/permissions', [PermissionRoleController::class, 'attachPermissionsToRole'])->name('roles.permissions.attach');
+            Route::delete('roles/{role}/permissions/{permission}', [PermissionRoleController::class, 'detachPermissionsToRole'])->name('roles.permissions.detach');
+
             // Perfis X Permissões
             Route::any('profiles/{profile}/permissions/search', [PermissionProfileController::class, 'search'])->name('profiles.permissions.search');
             Route::get('profiles/{profile}/permissions', [PermissionProfileController::class, 'permissions'])->name('profiles.permissions.index');
@@ -82,6 +95,16 @@ Route::prefix('admin')
             Route::post('permissions', [PermissionController::class, 'store'])->name('permissions.store');
             Route::put('permissions/{permission}', [PermissionController::class, 'update'])->name('permissions.update');
             Route::delete('permissions/{permission}', [PermissionController::class, 'destroy'])->name('permissions.destroy');
+
+            // Rotas Cargos
+            Route::any('roles/search', [RoleController::class, 'search'])->name('roles.search');
+            Route::get('roles', [RoleController::class, 'index'])->name('roles.index');
+            Route::get('roles/create', [RoleController::class, 'create'])->name('roles.create');
+            Route::get('roles/{role}', [RoleController::class, 'show'])->name('roles.show');
+            Route::get('roles/{role}/edit', [RoleController::class, 'edit'])->name('roles.edit');
+            Route::post('roles', [RoleController::class, 'store'])->name('roles.store');
+            Route::put('roles/{role}', [RoleController::class, 'update'])->name('roles.update');
+            Route::delete('roles/{role}', [RoleController::class, 'destroy'])->name('roles.destroy');
 
             // Rotas Perfis
             Route::any('profiles/search', [ProfileController::class, 'search'])->name('profiles.search');

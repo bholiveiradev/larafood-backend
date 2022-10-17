@@ -56,7 +56,7 @@
                 </div>
                 <div class="col-md-4 mb-2 text-right">
                     @if (!$product->image)
-                        <img src="https://via.placeholder.com/90" width="150" alt="" style="width: 100%; max-width: 768px;">
+                        <img src="https://via.placeholder.com/768" width="150" alt="" style="width: 100%; max-width: 768px;">
                     @else
                         <img src="{{ asset("storage/{$product->image}") }}" width="150" alt=""
                             style="width: 100%; max-width: 768px;">

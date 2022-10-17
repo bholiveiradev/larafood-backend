@@ -50,7 +50,7 @@
                     @forelse ($products as $product)
                         <tr>
                             <td>
-                                <img src="{{  !$product->image ? 'https://via.placeholder.com/60' : asset("storage/{$product->image}") }}" width="90" height="52" alt="" style="width: 90px; height: 52px; object-fit: cover">
+                                <img src="{{  !$product->image ? 'https://via.placeholder.com/90' : asset("storage/{$product->image}") }}" width="90" height="52" alt="" style="width: 90px; height: 52px; object-fit: cover">
                                 <span class="ml-2">{{ $product->title }}</span>
                             </td>
                             <td>{{ number_format($product->price, 2, ',', '.') }}</td>

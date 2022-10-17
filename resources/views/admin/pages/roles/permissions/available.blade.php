@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', $profile->name)
+@section('title', $role->name)
 
 @section('content_header')
     <ol class="breadcrumb">
@@ -8,13 +8,13 @@
             <a href="{{ route('admin.dashboard') }}">Dashboard</a>
         </li>
         <li class="breadcrumb-item">
-            <a href="{{ route('admin.profiles.index') }}">Perfis</a>
+            <a href="{{ route('admin.roles.index') }}">Cargos</a>
         </li>
         <li class="breadcrumb-item">
-            <a href="{{ route('admin.profiles.show', $profile->id) }}">{{ $profile->name }}</a>
+            <a href="{{ route('admin.roles.show', $role->id) }}">{{ $role->name }}</a>
         </li>
         <li class="breadcrumb-item">
-            <a href="{{ route('admin.profiles.permissions.index', $profile->id) }}">Permissões</a>
+            <a href="{{ route('admin.roles.permissions.index', $role->id) }}">Permissões</a>
         </li>
         <li class="breadcrumb-item active">
             Permissões Disponíveis
@@ -28,7 +28,7 @@
     <div class="card">
         <div class="card-header">
             <div class="d-flex justify-content-end">
-                <form action="{{ route('admin.profiles.permissions.search', $profile->id) }}" method="post" class="form form-inline">
+                <form action="{{ route('admin.roles.permissions.search', $role->id) }}" method="post" class="form form-inline">
                     @csrf
                     <div class="input-group input-group-sm">
                         <input type="text" name="text" class="form-control" value="{{ request('text') }}" placeholder="Procurar permissão...">
@@ -47,11 +47,11 @@
                 <thead>
                     <tr>
                         <th width="50"></th>
-                        <th>Permissão</th>
+                        <th>Nome</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <form action="{{ route('admin.profiles.permissions.attach', $profile->id) }}" method="post">
+                    <form action="{{ route('admin.roles.permissions.attach', $role->id) }}" method="post">
                         @csrf
                         @forelse ($permissions as $permission)
                             <tr>

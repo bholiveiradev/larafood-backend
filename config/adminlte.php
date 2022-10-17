@@ -241,7 +241,12 @@ return [
             'text' => 'Dashboard',
             'url'  => 'admin',
             'icon' => 'fas fa-chart-line',
-            // 'can'  => 'categories',
+        ],
+        [
+            'text' => 'Empresas',
+            'url'  => 'admin/companies',
+            'icon' => 'fas fa-building',
+            'can'  => 'companies',
         ],
         [
             'text' => 'Categorias',
@@ -272,6 +277,12 @@ return [
             'url'  => 'admin/profiles',
             'icon' => 'fas fa-address-book',
             'can'  => 'profiles',
+        ],
+        [
+            'text' => 'Cargos',
+            'url'  => 'admin/roles',
+            'icon' => 'fas fa-address-card',
+            'can'  => 'roles',
         ],
         [
             'text' => 'Permissões',
