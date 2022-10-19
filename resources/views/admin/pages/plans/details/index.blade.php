@@ -24,7 +24,7 @@
 @section('content')
     <div class="card">
         <div class="card-header">
-            <a href="{{ route('admin.plans.details.create', $plan->url) }}" class="btn btn-info btn-sm">
+            <a href="{{ route('admin.plans.details.create', $plan->url) }}" class="btn btn-outline-primary btn-sm">
                 <i class="fas fa-plus-circle"></i>
                 <span class="ml-1 d-none d-md-inline-block text-uppercase">Cadastrar Detalhe</span>
             </a>
@@ -45,11 +45,11 @@
                                 <form action="{{ route('admin.plans.details.destroy', [$plan->url, $detail->id]) }}" method="post" class="d-inline-block">
                                     @csrf
                                     @method('DELETE')
-                                    <button class="btn btn-danger btn-sm" data-toggle="tooltip" data-placement="left" title="Remover">
+                                    <button class="btn btn-outline-danger btn-sm" data-toggle="tooltip" data-placement="left" title="Remover">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </form>
-                                <a href="{{ route('admin.plans.details.edit', [$plan->url, $detail->id]) }}" class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="left" title="Editar">
+                                <a href="{{ route('admin.plans.details.edit', [$plan->url, $detail->id]) }}" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="left" title="Editar">
                                     <i class="fas fa-edit"></i>
                                 </a>
                             </td>

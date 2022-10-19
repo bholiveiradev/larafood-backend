@@ -19,7 +19,7 @@
     <div class="card">
         <div class="card-header">
             <div class="d-flex justify-content-between">
-                <a href="{{ route('admin.products.create') }}" class="btn btn-info btn-sm">
+                <a href="{{ route('admin.products.create') }}" class="btn btn-outline-primary btn-sm">
                     <i class="fas fa-plus-circle"></i>
                     <span class="ml-1 d-none d-md-inline-block text-uppercase">Cadastrar Produto</span>
                 </a>
@@ -29,7 +29,7 @@
                         <input type="text" name="text" class="form-control" value="{{ request('text') }}"
                             placeholder="Procurar produto...">
                         <div class="input-group-append">
-                            <button class="btn btn-secondary">
+                            <button class="btn btn-outline-light">
                                 <i class="fas fa-search"></i>
                             </button>
                         </div>
@@ -55,15 +55,15 @@
                             </td>
                             <td>{{ number_format($product->price, 2, ',', '.') }}</td>
                             <td>
-                                <a href="{{ route('admin.products.categories.index', $product->id) }}" class="btn btn-info btn-sm"
+                                <a href="{{ route('admin.products.categories.index', $product->id) }}" class="btn btn-outline-primary btn-sm"
                                     data-toggle="tooltip" data-placement="left" title="Categorias">
                                     <i class="fas fa-tags"></i>
                                 </a>
-                                <a href="{{ route('admin.products.show', $product->id) }}" class="btn btn-light btn-sm"
+                                <a href="{{ route('admin.products.show', $product->id) }}" class="btn btn-outline-primary btn-sm"
                                     data-toggle="tooltip" data-placement="left" title="Ver mais">
                                     <i class="fas fa-eye"></i>
                                 </a>
-                                <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-warning btn-sm"
+                                <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-outline-primary btn-sm"
                                     data-toggle="tooltip" data-placement="left" title="Editar">
                                     <i class="fas fa-edit"></i>
                                 </a>

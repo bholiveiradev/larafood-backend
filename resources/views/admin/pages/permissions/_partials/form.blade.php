@@ -2,7 +2,7 @@
 
 <div class="form-group">
     <label for="name">Permissão:</label>
-    <input type="text" name="name" value="{{ $profile->name ?? old('name') }}" class="form-control @error('name') is-invalid @enderror" placeholder="Nome:">
+    <input type="text" name="name" value="{{ $permission->name ?? old('name') }}" class="form-control @error('name') is-invalid @enderror" placeholder="Nome:">
 
     @error('name')
         <span class="invalid-feedback" role="alert">
@@ -12,7 +12,7 @@
 </div>
 <div class="form-group">
     <label for="description">Descrição:</label>
-    <input type="text" name="description" value="{{ $profile->description ?? old('description') }}" class="form-control @error('description') is-invalid @enderror"
+    <input type="text" name="description" value="{{ $permission->description ?? old('description') }}" class="form-control @error('description') is-invalid @enderror"
         placeholder="Descrição:">
 
     @error('description')

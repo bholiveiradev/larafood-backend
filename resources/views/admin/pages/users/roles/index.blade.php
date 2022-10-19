@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', $role->name)
+@section('title', $user->name)
 
 @section('content_header')
     <ol class="breadcrumb">
@@ -8,26 +8,26 @@
             <a href="{{ route('admin.dashboard') }}">Dashboard</a>
         </li>
         <li class="breadcrumb-item">
-            <a href="{{ route('admin.roles.index') }}">Cargos</a>
+            <a href="{{ route('admin.users.index') }}">Usuários</a>
         </li>
         <li class="breadcrumb-item">
-            <a href="{{ route('admin.roles.show', $role->id) }}">{{ $role->name }}</a>
+            <a href="{{ route('admin.users.show', $user->id) }}">{{ $user->name }}</a>
         </li>
         <li class="breadcrumb-item active">
-            Permissões
+            Cargos
         </li>
     </ol>
 
-    <h1>Permissões do Perfil: <strong>{{ $role->name }}</strong></h1>
+    <h1>Cargos do Perfil: <strong>{{ $user->name }}</strong></h1>
 @stop
 
 @section('content')
     <div class="card">
         <div class="card-header">
             <div class="d-flex justify-content-between">
-                <a href="{{ route('admin.roles.permissions.available', $role->id) }}" class="btn btn-outline-primary btn-sm">
+                <a href="{{ route('admin.users.roles.available', $user->id) }}" class="btn btn-outline-primary btn-sm">
                     <i class="fas fa-plus-circle"></i>
-                    <span class="ml-1 d-none d-md-inline-block text-uppercase">Adicionar Permissões</span>
+                    <span class="ml-1 d-none d-md-inline-block text-uppercase">Adicionar Cargos</span>
                 </a>
             </div>
         </div>
@@ -41,11 +41,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @forelse ($role->permissions as $permission)
+                    @forelse ($user->roles as $role)
                         <tr>
-                            <td>{{ $permission->name }}</td>
+                            <td>{{ $role->name }}</td>
                             <td>
-                                <form action="{{ route('admin.roles.permissions.detach', [$role->id, $permission->id]) }}" method="post" class="d-inline-block">
+                                <form action="{{ route('admin.users.roles.detach', [$user->id, $role->id]) }}" method="post" class="d-inline-block">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn btn-outline-danger btn-sm" data-toggle="tooltip" data-placement="left" title="Remover">

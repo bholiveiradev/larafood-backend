@@ -37,12 +37,12 @@
                 </li>
             </ul>
 
-            <a href="{{ route('admin.plans.profiles.index', $plan->url) }}" class="btn btn-secondary btn-sm">
+            <a href="{{ route('admin.plans.profiles.index', $plan->url) }}" class="btn btn-outline-primary btn-sm">
                 <i class="fas fa-address-book"></i>
                 <span class="ml-1 d-none d-md-inline-block text-uppercase">Perfis do Plano</span>
             </a>
 
-            <a href="{{ route('admin.plans.details.index', $plan->url) }}" class="btn btn-info btn-sm">
+            <a href="{{ route('admin.plans.details.index', $plan->url) }}" class="btn btn-outline-primary btn-sm">
                 <i class="fas fa-tasks"></i>
                 <span class="ml-1 d-none d-md-inline-block text-uppercase">Detalhes do Plano</span>
             </a>
@@ -50,7 +50,7 @@
             <form action="{{ route('admin.plans.destroy', $plan->url) }}" method="post" class="d-inline-block">
                 @csrf
                 @method('DELETE')
-                <button class="btn btn-danger btn-sm">
+                <button class="btn btn-outline-danger btn-sm" onclick="return confirm('Deseja realmente remover?')">
                     <i class="fas fa-trash"></i>
                     <span class="ml-1 d-none d-md-inline-block text-uppercase">Deletar Plano</span>
                 </button>

@@ -39,7 +39,7 @@
                         </li>
                     </ul>
 
-                    <a href="{{ route('admin.products.categories.index', $product->id) }}" class="btn btn-info btn-sm">
+                    <a href="{{ route('admin.products.categories.index', $product->id) }}" class="btn btn-outline-primary btn-sm">
                         <i class="fas fa-tags"></i>
                         <span class="ml-1 d-none d-md-inline-block text-uppercase">Categorias</span>
                     </a>
@@ -48,7 +48,7 @@
                         class="d-inline-block">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-danger btn-sm">
+                        <button class="btn btn-outline-danger btn-sm">
                             <i class="fas fa-trash"></i>
                             <span class="ml-1 d-none d-md-inline-block text-uppercase">Deletar Produto</span>
                         </button>

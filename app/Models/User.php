@@ -63,6 +63,11 @@ class User extends Authenticatable
         return $this->belongsTo(Company::class);
     }
 
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
     public function search($text = '')
     {
         return $this->where('name', 'LIKE', "%{$text}%")

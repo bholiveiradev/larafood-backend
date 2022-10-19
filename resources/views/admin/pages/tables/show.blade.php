@@ -34,7 +34,7 @@
             <form action="{{ route('admin.tables.destroy', $table->id) }}" method="post" class="d-inline-block">
                 @csrf
                 @method('DELETE')
-                <button class="btn btn-danger btn-sm">
+                <button class="btn btn-outline-danger btn-sm" onclick="return confirm('Deseja realmente remover?')">
                     <i class="fas fa-trash"></i>
                     <span class="ml-1 d-none d-md-inline-block text-uppercase">Deletar Mesa</span>
                 </button>

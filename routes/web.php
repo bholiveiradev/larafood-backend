@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\{
 use App\Http\Controllers\Admin\ACL\PermissionRoleController;
 use App\Http\Controllers\Admin\ACL\PlanProfileController;
 use App\Http\Controllers\Admin\ACL\RoleController;
+use App\Http\Controllers\Admin\ACL\RoleUserController;
 use Illuminate\Support\Facades\{
     Auth,
     Route
@@ -71,6 +72,13 @@ Route::prefix('admin')
             Route::get('plans/{url}/profiles/available', [PlanProfileController::class, 'available'])->name('plans.profiles.available');
             Route::post('plans/{url}/profiles', [PlanProfileController::class, 'attachProfilesToPlan'])->name('plans.profiles.attach');
             Route::delete('plans/{url}/profiles/{profile}', [PlanProfileController::class, 'detachProfilesToPlan'])->name('plans.profiles.detach');
+
+            // Usuários X Cargos
+            Route::any('users/{user}/roles/search', [RoleUserController::class, 'search'])->name('users.roles.search');
+            Route::get('users/{user}/roles', [RoleUserController::class, 'roles'])->name('users.roles.index');
+            Route::get('users/{user}/roles/available', [RoleUserController::class, 'available'])->name('users.roles.available');
+            Route::post('users/{user}/roles', [RoleUserController::class, 'attachRolesToUser'])->name('users.roles.attach');
+            Route::delete('users/{user}/roles/{role}', [RoleUserController::class, 'detachRolesToUser'])->name('users.roles.detach');
 
             // Cargos X Permissões
             Route::any('roles/{role}/permissions/search', [PermissionRoleController::class, 'search'])->name('roles.permissions.search');

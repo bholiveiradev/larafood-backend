@@ -33,7 +33,7 @@
                     <div class="input-group input-group-sm">
                         <input type="text" name="text" class="form-control" value="{{ request('text') }}" placeholder="Procurar permissão...">
                         <div class="input-group-append">
-                            <button class="btn btn-secondary">
+                            <button class="btn btn-outline-light">
                                 <i class="fas fa-search"></i>
                             </button>
                         </div>

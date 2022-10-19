@@ -19,7 +19,7 @@
     <div class="card">
         <div class="card-header">
             <div class="d-flex justify-content-between">
-                <a href="{{ route('admin.plans.create') }}" class="btn btn-info btn-sm">
+                <a href="{{ route('admin.plans.create') }}" class="btn btn-outline-primary btn-sm">
                     <i class="fas fa-plus-circle"></i>
                     <span class="ml-1 d-none d-md-inline-block text-uppercase">Cadastrar Plano</span>
                 </a>
@@ -28,7 +28,7 @@
                     <div class="input-group input-group-sm">
                         <input type="text" name="text" class="form-control" value="{{ request('text') }}" placeholder="Procurar plano...">
                         <div class="input-group-append">
-                            <button class="btn btn-secondary">
+                            <button class="btn btn-outline-light">
                                 <i class="fas fa-search"></i>
                             </button>
                         </div>
@@ -51,16 +51,16 @@
                             <td>{{ $plan->name }}</td>
                             <td>{{ number_format($plan->price, 2, ',', '.') }}</td>
                             <td>
-                                <a href="{{ route('admin.plans.profiles.index', $plan->url) }}" class="btn btn-secondary btn-sm" data-toggle="tooltip" data-placement="left" title="Perfis">
+                                <a href="{{ route('admin.plans.profiles.index', $plan->url) }}" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="left" title="Perfis">
                                     <i class="fas fa-address-book"></i>
                                 </a>
-                                <a href="{{ route('admin.plans.details.index', $plan->url) }}" class="btn btn-info btn-sm" data-toggle="tooltip" data-placement="left" title="Detalhes">
+                                <a href="{{ route('admin.plans.details.index', $plan->url) }}" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="left" title="Detalhes">
                                     <i class="fas fa-tasks"></i>
                                 </a>
-                                <a href="{{ route('admin.plans.show', $plan->url) }}" class="btn btn-light btn-sm" data-toggle="tooltip" data-placement="left" title="Ver mais">
+                                <a href="{{ route('admin.plans.show', $plan->url) }}" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="left" title="Ver mais">
                                     <i class="fas fa-eye"></i>
                                 </a>
-                                <a href="{{ route('admin.plans.edit', $plan->url) }}" class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="left" title="Editar">
+                                <a href="{{ route('admin.plans.edit', $plan->url) }}" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="left" title="Editar">
                                     <i class="fas fa-edit"></i>
                                 </a>
                             </td>

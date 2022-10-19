@@ -19,7 +19,7 @@
     <div class="card">
         <div class="card-header">
             <div class="d-flex justify-content-between">
-                <a href="{{ route('admin.users.create') }}" class="btn btn-info btn-sm">
+                <a href="{{ route('admin.users.create') }}" class="btn btn-outline-primary btn-sm">
                     <i class="fas fa-plus-circle"></i>
                     <span class="ml-1 d-none d-md-inline-block text-uppercase">Cadastrar Usuário</span>
                 </a>
@@ -28,7 +28,7 @@
                     <div class="input-group input-group-sm">
                         <input type="text" name="text" class="form-control" value="{{ request('text') }}" placeholder="Procurar usuário...">
                         <div class="input-group-append">
-                            <button class="btn btn-secondary">
+                            <button class="btn btn-outline-light">
                                 <i class="fas fa-search"></i>
                             </button>
                         </div>
@@ -51,10 +51,13 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>
-                                <a href="{{ route('admin.users.show', $user->id) }}" class="btn btn-light btn-sm" data-toggle="tooltip" data-placement="left" title="Ver mais">
+                                <a href="{{ route('admin.users.roles.index', $user->id) }}" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="left" title="Cargos">
+                                    <i class="fas fa-address-card"></i>
+                                </a>
+                                <a href="{{ route('admin.users.show', $user->id) }}" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="left" title="Ver mais">
                                     <i class="fas fa-eye"></i>
                                 </a>
-                                <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="left" title="Editar">
+                                <a href="{{ route('admin.users.edit', $user->id) }}" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="left" title="Editar">
                                     <i class="fas fa-edit"></i>
                                 </a>
                             </td>

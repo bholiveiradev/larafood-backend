@@ -24,7 +24,7 @@
                     <div class="input-group input-group-sm">
                         <input type="text" name="text" class="form-control" value="{{ request('text') }}" placeholder="Procurar categoria...">
                         <div class="input-group-append">
-                            <button class="btn btn-secondary">
+                            <button class="btn btn-outline-light">
                                 <i class="fas fa-search"></i>
                             </button>
                         </div>
@@ -52,10 +52,10 @@
                             <td>{{ $company->cnpj }}</td>
                             <td>{{ $company->is_active === 'Y' ? 'SIM' : 'NÃO' }}</td>
                             <td>
-                                <a href="{{ route('admin.companies.show', $company->uuid) }}" class="btn btn-light btn-sm" data-toggle="tooltip" data-placement="left" title="Ver mais">
+                                <a href="{{ route('admin.companies.show', $company->uuid) }}" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="left" title="Ver mais">
                                     <i class="fas fa-eye"></i>
                                 </a>
-                                <a href="{{ route('admin.companies.edit', $company->uuid) }}" class="btn btn-warning btn-sm" data-toggle="tooltip" data-placement="left" title="Editar">
+                                <a href="{{ route('admin.companies.edit', $company->uuid) }}" class="btn btn-outline-primary btn-sm" data-toggle="tooltip" data-placement="left" title="Editar">
                                     <i class="fas fa-edit"></i>
                                 </a>
                             </td>
