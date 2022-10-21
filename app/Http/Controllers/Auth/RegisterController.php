@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Events\CompanyCreated;
+use App\Services\TenantService;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use App\Services\TenantService;
-use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {
@@ -83,6 +84,10 @@ class RegisterController extends Controller
 
         $tenantService = app(TenantService::class);
 
-        return $tenantService->storeCompanyUser(session('plan'), $data);
+        $createdUser = $tenantService->storeCompanyUser(session('plan'), $data);
+
+        event(new CompanyCreated($createdUser));
+
+        return $createdUser;
     }
 }
