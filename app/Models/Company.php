@@ -30,7 +30,6 @@ class Company extends Model
         parent::boot();
 
         self::updating(function (Model $model) {
-
             $model->subscription_suspended 
                 ? $model->subscription_suspended_at = now() 
                 : $model->subscription_suspended_at = null;
