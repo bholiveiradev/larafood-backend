@@ -31,11 +31,9 @@ class Company extends Model
 
         self::updating(function (Model $model) {
 
-            if ($model->subscription_suspended) {
-                $model->subscription_suspended_at = now();
-            } else {
-                $model->subscription_suspended_at = null;
-            }
+            $model->subscription_suspended 
+                ? $model->subscription_suspended_at = now() 
+                : $model->subscription_suspended_at = null;
         });
     }
 
