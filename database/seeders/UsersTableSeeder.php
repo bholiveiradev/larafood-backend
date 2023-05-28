@@ -17,11 +17,22 @@ class UsersTableSeeder extends Seeder
     {
         $company = Company::first();
 
-        $company->users()->create([
+        $user = $company->users()->create([
             'company_id' => Company::first()->id,
             'name'       => 'Bruno Oliveira',
             'email'      => 'admin@admin.com.br',
             'password'   => bcrypt('teste123'),
+        ]);
+
+        $role = $user->roles()->create([
+            'name' => 'Admin',
+            'description' => 'Administrador'
+        ]);
+
+        $role->permissions()->createMany([
+            ['name' => 'users'],
+            ['name' => 'categories'],
+            ['name' => 'permissions']
         ]);
     }
 }
