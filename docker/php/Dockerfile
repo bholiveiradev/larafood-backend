@@ -20,7 +20,8 @@ RUN docker-php-ext-install \
     xml \
     mbstring \
     curl \
-    zip
+    zip \
+    gd
 
 RUN pecl install xdebug \
     && docker-php-ext-enable xdebug
