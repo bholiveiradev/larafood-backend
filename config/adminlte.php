@@ -298,6 +298,12 @@ return [
             'icon' => 'fas fa-users',
             'can'  => 'users',
         ],
+        [
+            'text' => 'Visitar Site',
+            'url'  => '/',
+            'icon' => 'fas fa-link',
+            'can'  => 'users',
+        ],
     ],
 
     /*
