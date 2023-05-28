@@ -21,18 +21,18 @@ class Permission extends Model
         return $this->belongsToMany(Role::class);
     }
 
-    public function available($roleId, $text = '')
+    public function available($profileId, $text = '')
     {
-        $permissions = $this->whereNotIn('id', function ($query) use ($roleId) {
-                            $query->select('permission_role.permission_id')
-                                ->from('permission_role')
-                                ->whereRaw("permission_role.role_id={$roleId}");
-                        });
+        $permissions = $this->whereNotIn('id', function ($query) use ($profileId) {
+            $query->select('permission_profile.permission_id')
+                ->from('permission_profile')
+                ->whereRaw("permission_profile.profile_id={$profileId}");
+        });
 
         if(!empty($text)) {
             $permissions->where('name', 'LIKE', "%{$text}%")
-                        ->orWhere('description', 'LIKE', "%{$text}%")
-                        ->latest();
+                ->orWhere('description', 'LIKE', "%{$text}%")
+                ->latest();
         }
 
         return $permissions;
